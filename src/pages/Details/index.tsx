@@ -1,5 +1,3 @@
-import axios from 'axios';
-import { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useMarvel } from '../../hooks/useMarvel';
 
@@ -16,14 +14,11 @@ export function Details() {
 
     const detailId = params.id;
 
-    //characters.getCharacterDetail(detailId);
-
     const character = characters.characters.find(character => character.name === detailId);
 
     function handleGoBack() {
         history.goBack();
     }
-
 
     return (
         <div className="details-content">
@@ -36,6 +31,5 @@ export function Details() {
                 <button onClick={handleGoBack}>Voltar</button>
             </div>
         </div>
-
     )
 }

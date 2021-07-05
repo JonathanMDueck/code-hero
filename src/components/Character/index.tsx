@@ -1,5 +1,3 @@
-//import './styles.scss';
-
 import { useHistory } from "react-router-dom";
 
 type CharacterType = {
@@ -22,13 +20,12 @@ type CharacterType = {
     }
 }
 
-
 export function Character(props?: CharacterType) {
 
     const history = useHistory();
 
-    function goToDetails(characterId: string | undefined) {
-        history.push(`/details/${characterId}`)
+    function goToDetails(characterName: string | undefined) {
+        history.push(`/details/${characterName}`)
     }
 
     return (

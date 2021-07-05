@@ -1,4 +1,4 @@
-import md5 from 'md5';
+import { Md5 } from 'md5-typescript';
 import { useEffect, useState } from 'react';
 
 type CharacterType = {
@@ -21,7 +21,6 @@ type CharacterType = {
     }
 }
 
-
 export function useMarvel() {
 
     // const publicKey = process.env.REACT_APP_PUBLIC_KEY;
@@ -32,7 +31,7 @@ export function useMarvel() {
     const baseUrl = "http://gateway.marvel.com/v1/public/characters?";
     const timeStamp = Number(new Date);
 
-    const hash = md5(timeStamp + privateKey + publicKey);
+    const hash = Md5.init(timeStamp + privateKey + publicKey);
 
     const [characters, setCharacters] = useState<CharacterType[]>([]);
     const [query, setQuery] = useState('');
@@ -43,16 +42,8 @@ export function useMarvel() {
         fetch(`${baseUrl}limit=100&ts=${timeStamp}&apikey=${publicKey}&hash=${hash}${searchParam}`)
             .then(response => response.json())
             .then(response => setCharacters(response.data.results));
-
     }, [query])
 
-    function getData() {
-        const data = fetch(`${baseUrl}limit=100&ts=${timeStamp}&apikey=${publicKey}&hash=${hash}${searchParam}`)
-            .then(response => response.json());
-
-        return data;
-    }
-
-    return { characters, setQuery, getData };
+    return { characters, setQuery };
 }
 

@@ -1,10 +1,8 @@
-import { useEffect } from 'react';
 import { useState } from 'react';
 import { useMarvel } from '../../hooks/useMarvel';
 import { Character } from '../../components/Character';
 import searchImg from './assets/search.svg';
 import './styles.scss';
-
 
 export function Home() {
 
@@ -23,6 +21,7 @@ export function Home() {
                 <img src="./logo.svg" alt="Logo"></img>
                 <div className="header-content">
                     <p><strong>Jonathan Dueck </strong> Teste de Front-end</p>
+                    <img src="https://github.com/jonathanmdueck.png" alt="Candidato"></img>
                 </div>
             </header>
             <main className="content">
@@ -37,14 +36,12 @@ export function Home() {
                     <button onClick={handleSearch}><img src={searchImg} alt="Search"></img></button>
                 </div>
 
-                {console.log(characters.characters)}
-
-                <table>
+                <table className="character-table">
                     <thead>
                         <tr>
-                            <td>Personagem</td>
-                            <td>Séries</td>
-                            <td>Eventos</td>
+                            <th>Personagem</th>
+                            <th>Séries</th>
+                            <th>Eventos</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,7 +62,6 @@ export function Home() {
                 </table>
             </main>
             <footer>
-
             </footer>
         </div>
     );

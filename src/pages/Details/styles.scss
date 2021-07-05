@@ -10,7 +10,6 @@
         margin: 15px;
         align-items: stretch;
         
-
         > img{
             border-radius: 6px;
         }
@@ -23,7 +22,6 @@
             margin-top: 25px;
             transition: filter 0.2s;
             
-
             &:hover{
                 cursor: pointer;
                 filter: brightness(0.93);
@@ -35,3 +33,4 @@
         font-size: 25px;
     }
 }
+

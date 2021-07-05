@@ -5,7 +5,6 @@ import { Details } from './pages/Details';
 
 import './styles/global.scss'
 
-
 function App() {
   return (
     <BrowserRouter>
